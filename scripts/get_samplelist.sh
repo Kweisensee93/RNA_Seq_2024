@@ -12,6 +12,7 @@
 #SBATCH --partition=pibu_el8
 
 FASTQ_FOLDER=$1
+echo "FASTQ Folder: $FASTQ_FOLDER"
 
 for FILE in $FASTQ_FOLDER/*_*1.fastq.gz
 do 

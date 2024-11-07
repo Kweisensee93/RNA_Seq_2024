@@ -1,0 +1,13 @@
+FASTQ Folder: /data/users/kweisensee/RNA_Seq/rawdata/
+HER21	/data/users/kweisensee/RNA_Seq/rawdata//HER21_R1.fastq.gz	/data/users/kweisensee/RNA_Seq/rawdata//HER21_R2.fastq.gz
+HER22	/data/users/kweisensee/RNA_Seq/rawdata//HER22_R1.fastq.gz	/data/users/kweisensee/RNA_Seq/rawdata//HER22_R2.fastq.gz
+HER23	/data/users/kweisensee/RNA_Seq/rawdata//HER23_R1.fastq.gz	/data/users/kweisensee/RNA_Seq/rawdata//HER23_R2.fastq.gz
+NonTNBC1	/data/users/kweisensee/RNA_Seq/rawdata//NonTNBC1_R1.fastq.gz	/data/users/kweisensee/RNA_Seq/rawdata//NonTNBC1_R2.fastq.gz
+NonTNBC2	/data/users/kweisensee/RNA_Seq/rawdata//NonTNBC2_R1.fastq.gz	/data/users/kweisensee/RNA_Seq/rawdata//NonTNBC2_R2.fastq.gz
+NonTNBC3	/data/users/kweisensee/RNA_Seq/rawdata//NonTNBC3_R1.fastq.gz	/data/users/kweisensee/RNA_Seq/rawdata//NonTNBC3_R2.fastq.gz
+Normal1	/data/users/kweisensee/RNA_Seq/rawdata//Normal1_R1.fastq.gz	/data/users/kweisensee/RNA_Seq/rawdata//Normal1_R2.fastq.gz
+Normal2	/data/users/kweisensee/RNA_Seq/rawdata//Normal2_R1.fastq.gz	/data/users/kweisensee/RNA_Seq/rawdata//Normal2_R2.fastq.gz
+Normal3	/data/users/kweisensee/RNA_Seq/rawdata//Normal3_R1.fastq.gz	/data/users/kweisensee/RNA_Seq/rawdata//Normal3_R2.fastq.gz
+TNBC1	/data/users/kweisensee/RNA_Seq/rawdata//TNBC1_R1.fastq.gz	/data/users/kweisensee/RNA_Seq/rawdata//TNBC1_R2.fastq.gz
+TNBC2	/data/users/kweisensee/RNA_Seq/rawdata//TNBC2_R1.fastq.gz	/data/users/kweisensee/RNA_Seq/rawdata//TNBC2_R2.fastq.gz
+TNBC3	/data/users/kweisensee/RNA_Seq/rawdata//TNBC3_R1.fastq.gz	/data/users/kweisensee/RNA_Seq/rawdata//TNBC3_R2.fastq.gz

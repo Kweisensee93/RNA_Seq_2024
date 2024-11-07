@@ -1,0 +1,12 @@
+HER21	../rawdata//HER21_R1.fastq.gz	../rawdata//HER21_R2.fastq.gz
+HER22	../rawdata//HER22_R1.fastq.gz	../rawdata//HER22_R2.fastq.gz
+HER23	../rawdata//HER23_R1.fastq.gz	../rawdata//HER23_R2.fastq.gz
+NonTNBC1	../rawdata//NonTNBC1_R1.fastq.gz	../rawdata//NonTNBC1_R2.fastq.gz
+NonTNBC2	../rawdata//NonTNBC2_R1.fastq.gz	../rawdata//NonTNBC2_R2.fastq.gz
+NonTNBC3	../rawdata//NonTNBC3_R1.fastq.gz	../rawdata//NonTNBC3_R2.fastq.gz
+Normal1	../rawdata//Normal1_R1.fastq.gz	../rawdata//Normal1_R2.fastq.gz
+Normal2	../rawdata//Normal2_R1.fastq.gz	../rawdata//Normal2_R2.fastq.gz
+Normal3	../rawdata//Normal3_R1.fastq.gz	../rawdata//Normal3_R2.fastq.gz
+TNBC1	../rawdata//TNBC1_R1.fastq.gz	../rawdata//TNBC1_R2.fastq.gz
+TNBC2	../rawdata//TNBC2_R1.fastq.gz	../rawdata//TNBC2_R2.fastq.gz
+TNBC3	../rawdata//TNBC3_R1.fastq.gz	../rawdata//TNBC3_R2.fastq.gz
