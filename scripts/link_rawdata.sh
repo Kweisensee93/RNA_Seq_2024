@@ -11,3 +11,4 @@
 # recommended partition is pibu_el8, stick with it if not needed otherwise
 #SBATCH --partition=pibu_el8
 
+ln -s /data/courses/rnaseq_course/breastcancer_de/reads/* /data/users/kweisensee/RNA_Seq/rawdata/
