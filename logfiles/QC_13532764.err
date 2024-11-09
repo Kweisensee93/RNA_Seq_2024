@@ -1,1 +1,0 @@
-FATAL:   While checking container encryption: could not open image /data/users/kweisensee/RNA_Seq/scripts/fastqc: failed to retrieve path for /data/users/kweisensee/RNA_Seq/scripts/fastqc: lstat /data/users/kweisensee/RNA_Seq/scripts/fastqc: no such file or directory
