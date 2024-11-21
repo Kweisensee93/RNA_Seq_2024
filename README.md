@@ -7,6 +7,9 @@ For a better understanding of the scripts the folders are listed below
 logfiles/
 # Data handled by scripts are directed to this repository
 output/
+output/fastp        reads after cleaning
+output/fastqc_1     fastQC on raw-reads
+output/fastqc_2     fastQC after fastp clean-up
 # Rawdaty provided for this course (derived from the paper)
 rawdata/
 # Human reference genome and its checksum
