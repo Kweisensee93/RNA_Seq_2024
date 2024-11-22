@@ -20,8 +20,8 @@ SAMPLELIST="$WORKDIR/output/samplelist.tsv"
 
 # Extract sample information
 SAMPLE=$(awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $1; exit}' $SAMPLELIST)
-READ1=${SAMPLE}_fastp__R1.fastq.gz
-READ2=${SAMPLE}_fastp__R2.fastq.gz
+READ1=${SAMPLE}_fastp_R1.fastq.gz
+READ2=${SAMPLE}_fastp_R2.fastq.gz
 
 # Run FastQC inside Singularity
 apptainer exec --bind /data ${FASTQC_IMAGE} fastqc \

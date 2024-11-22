@@ -7,11 +7,13 @@
 #SBATCH --error=../logfiles/Multi_QC_%J.err    # Standard error
 #SBATCH --partition=pibu_el8
 
-
-module load MultiQC/1.11-foss-2021a
+# if singularity/apptainer is not working (N.B.: It is another version!):
+#module load MultiQC/1.11-foss-2021a
 
 # Define variables
-OUTDIR="/data/users/kweisensee/RNA_Seq/output/fastqc_1"
+OUTDIR="/data/users/kweisensee/RNA_Seq/output/fastqc_3"
+
+MULTI_QC_IMAGE="/containers/apptainer/multiqc-1.19.sif"
 
 # take the QC reports from quality_control.sh and create a MultiQC report
-multiqc "${OUTDIR}" -o "${OUTDIR}"
+apptainer exec --bind /data ${MULTI_QC_IMAGE} multiqc "${OUTDIR}" -o "${OUTDIR}"
