@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --job-name=mapping
 #SBATCH --output=../logfiles/mapping_%J_%a.out   # Standard output
-#SBATCH --error=../logfiles/mapping_%J_%a.err    # Standard error
+#SBATCH --error=../output/mapping_%J_%a.err    # Standard error
 #SBATCH --partition=pibu_el8
 
 HISAT2_IMAGE="/containers/apptainer/hisat2_samtools_408dfd02f175cd88.sif"
@@ -26,6 +26,8 @@ apptainer exec --bind /data ${HISAT2_IMAGE} hisat2 \
     -1 ${WORKDIR}/output/fastp/${READ1} \
     -2 ${WORKDIR}/output/fastp/${READ2} \
     -S ${OUTDIR}/${SAMPLE}_aligned.sam
+
+sleep 30s
 
 apptainer exec --bind /data ${SAMTOOLS_IMAGE} samtools view \
     -S \
