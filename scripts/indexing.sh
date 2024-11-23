@@ -18,6 +18,8 @@ if [ ! -f ${WORKDIR}/reference/Homo_sapiens.GRCh38.dna.primary_assembly.fa ]; th
         ${WORKDIR}/reference/Homo_sapiens.GRCh38.dna.primary_assembly.fa
 fi
 
+# bind to correct path if rerunning the script
+# this indexes the human reference genome with hisat2
 apptainer exec --bind /data ${HISAT2_IMAGE} hisat2-build \
     -p 16 \
     ${WORKDIR}/reference/Homo_sapiens.GRCh38.dna.primary_assembly.fa \

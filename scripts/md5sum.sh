@@ -7,6 +7,10 @@
 #SBATCH --error=../logfiles/md5sum_%J.err    # Standard error
 #SBATCH --partition=pibu_el8
 
+# in a first run the mapping .bam files were created in the scripts folder.
+# this script should be used after copying (to output/mapping) and before removing the .bam files.
+# it creates md5sums for all files in the scripts and the output/mapping subfolders
+
 cd /data/users/kweisensee/RNA_Seq/scripts/
 touch md5sum.txt
 

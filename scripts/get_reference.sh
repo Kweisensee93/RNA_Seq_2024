@@ -13,7 +13,7 @@ WORKDIR="/data/users/kweisensee/RNA_Seq"
 # the wget is pre-installed on the cluster
 # download the reference genome
 wget -P "${WORKDIR}/reference" ftp://ftp.ensembl.org/pub/release-113/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
-# download the checksum
+# download the checksum to confirm proper download (see script checksum.sh)
 wget -O "${WORKDIR}/reference/CHECKSUM.txt" ftp://ftp.ensembl.org/pub/release-113/fasta/homo_sapiens/dna/CHECKSUMS
 
 # the reference genome used was under:

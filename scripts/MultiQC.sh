@@ -7,10 +7,11 @@
 #SBATCH --error=../logfiles/Multi_QC_%J.err    # Standard error
 #SBATCH --partition=pibu_el8
 
-# if singularity/apptainer is not working (N.B.: It is another version!):
+# if and only if singularity/apptainer is not working (N.B.: It is another version!):
 #module load MultiQC/1.11-foss-2021a
 
 # Define variables
+# change the fastqc folder to the needed one
 OUTDIR="/data/users/kweisensee/RNA_Seq/output/fastqc_3"
 
 MULTI_QC_IMAGE="/containers/apptainer/multiqc-1.19.sif"

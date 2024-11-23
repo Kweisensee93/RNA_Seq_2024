@@ -3,15 +3,12 @@
 #SBATCH --mem=500M
 #SBATCH --cpus-per-task=1
 #SBATCH --job-name=get_samplelist
-# Redirect output and error to the parent directory's 'output' folder
 #SBATCH --output=../output/samplelist.tsv   # Standard output
 #SBATCH --error=../logfiles/%x-%j.err    # Standard error
-
-# recommended partition is pibu_el8, stick with it if not needed otherwise
 #SBATCH --partition=pibu_el8
 
-#first argument passed to the bashscript should be the path to the rawdata
-#for this course as first argument:
+# first argument passed to the bashscript should be the path to the rawdata
+# for this course as first argument:
 # /data/users/kweisensee/RNA_Seq/rawdata/
 FASTQ_FOLDER=$1
 

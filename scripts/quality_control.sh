@@ -8,7 +8,7 @@
 #SBATCH --error=../logfiles/QC_%J.err    # Standard error
 #SBATCH --partition=pibu_el8
 
-# if singularity/apptainer is not working (N.B.: It is another version!):
+# if and only if singularity/apptainer is not working (N.B.: It is another version!):
 # module load FastQC/0.11.9-Java-11
 
 FASTQC_IMAGE="/containers/apptainer/fastqc-0.12.1.sif"
@@ -19,6 +19,7 @@ OUTDIR="${WORKDIR}/output/fastqc_3"
 SAMPLELIST="$WORKDIR/output/samplelist.tsv"
 
 # Extract sample information
+# adapt if needed!
 SAMPLE=$(awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $1; exit}' $SAMPLELIST)
 READ1=$(awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $2; exit}' $SAMPLELIST)
 READ2=$(awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $3; exit}' $SAMPLELIST)
@@ -27,6 +28,7 @@ READ2=$(awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $3; exit}' $SAMPLELIST)
 #fastqc -o "$OUTDIR" -f fastq "${WORKDIR}/rawdata/${READ1}" "${WORKDIR}/rawdata/${READ2}"
 
 # Run FastQC inside Singularity
+# change folders as needed!
 apptainer exec --bind /data ${FASTQC_IMAGE} fastqc \
     -o "$OUTDIR" \
     -f fastq "${WORKDIR}/rawdata/${READ1}" \

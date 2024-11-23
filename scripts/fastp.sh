@@ -20,8 +20,9 @@ READ2=$(awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $3; exit}' $SAMPLELIST)
 
 #for the analysis fastp version 0.23.2 was used
 FASTP_IMAGE="/containers/apptainer/fastp_0.23.2--h5f740d0_3.sif"
+
 # load the fastp module
-# bind your specific folder for rerun
+# bind your specific folder for rerun; _fastp is added for distinction to rawrfiles
 apptainer exec --bind /data ${FASTP_IMAGE} fastp \
     --dont_overwrite \
     -h "${OUTDIR}/${SAMPLE}_fastp.html" \

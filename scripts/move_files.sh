@@ -7,6 +7,8 @@
 #SBATCH --error=../logfiles/moving_%J.err    # Standard error
 #SBATCH --partition=pibu_el8
 
+# .bam files are rather big so this script may be used to safe the login node
+
 for file in /data/users/kweisensee/RNA_Seq/scripts/*.bam; do
     cp "$file" /data/users/kweisensee/RNA_Seq/output/mapping
 done

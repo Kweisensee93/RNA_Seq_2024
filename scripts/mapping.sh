@@ -8,18 +8,24 @@
 #SBATCH --error=../output/mapping_%J_%a.err    # Standard error
 #SBATCH --partition=pibu_el8
 
+# get links for the images of Hisat2 and samtools
 HISAT2_IMAGE="/containers/apptainer/hisat2_samtools_408dfd02f175cd88.sif"
 SAMTOOLS_IMAGE="/containers/apptainer/hisat2_samtools_408dfd02f175cd88.sif"
 
+# define variables
 WORKDIR="/data/users/kweisensee/RNA_Seq"
 INDEXING="${WORKDIR}/output/indexing"
 OUTDIR="${WORKDIR}/output/mapping"
 SAMPLELIST="$WORKDIR/output/samplelist.tsv"
 
+# retrieve sample information; Note: the fastp-processed files have different endings,
+# which are not retrieved from the samplelist file. The ending should align as in script fastp.sh
 SAMPLE=$(awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $1; exit}' $SAMPLELIST)
 READ1=${SAMPLE}_fastp_R1.fastq.gz
 READ2=${SAMPLE}_fastp_R2.fastq.gz
 
+# mapping of all fastp processed data to the reference genome; Note: The different index files will
+# be taken up by hisat2 automatically, so the GRCh38_index is sufficient as input
 apptainer exec --bind /data ${HISAT2_IMAGE} hisat2 \
     -p 16 \
     -x ${INDEXING}/GRCh38_index \
@@ -27,12 +33,16 @@ apptainer exec --bind /data ${HISAT2_IMAGE} hisat2 \
     -2 ${WORKDIR}/output/fastp/${READ2} \
     -S ${OUTDIR}/${SAMPLE}_aligned.sam
 
+# better safe than sorry then sorrow
 sleep 30s
 
+# transfer .sam to .bam
 apptainer exec --bind /data ${SAMTOOLS_IMAGE} samtools view \
     -S \
     -b ${OUTDIR}/${SAMPLE}_aligned.sam > ${OUTDIR}/${SAMPLE}_aligned.bam
 
+# better safe than sorry then sorrow
 sleep 30s
 
+# remove unneeded .sam files
 rm ${OUTDIR}/*_aligned.sam
