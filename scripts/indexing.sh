@@ -18,7 +18,8 @@ if [ ! -f ${WORKDIR}/reference/Homo_sapiens.GRCh38.dna.primary_assembly.fa ]; th
         ${WORKDIR}/reference/Homo_sapiens.GRCh38.dna.primary_assembly.fa
 fi
 
-apptainer exec --bind /data ${HISAT2_IMAGE} hisat-2-build \
+apptainer exec --bind /data ${HISAT2_IMAGE} hisat2-build \
     -p 16 \
-    ${WORKDIR}/reference/Homo_sapiens.GRCh38.dna.primary_assembly.fa genome \
+    ${WORKDIR}/reference/Homo_sapiens.GRCh38.dna.primary_assembly.fa \
+    ${OUTDIR}/GRCh38_index \
     > ${OUTDIR}/indexing.log 2>&1
