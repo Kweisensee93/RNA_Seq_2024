@@ -3,7 +3,7 @@
 #SBATCH --mem=500M
 #SBATCH --cpus-per-task=1
 #SBATCH --job-name=get_samplelist
-#SBATCH --output=../output/samplelist.tsv   # Standard output
+#SBATCH --output=../output/fastp_repeat/samplelist.tsv   # Standard output
 #SBATCH --error=../logfiles/%x-%j.err    # Standard error
 #SBATCH --partition=pibu_el8
 
@@ -16,8 +16,11 @@ for FILE in "${FASTQ_FOLDER}"*_R1.fastq.gz
 do
     FILENAME=$(basename "${FILE}")
     SAMPLENAME="${FILENAME%%_*}"
-    echo -e "${SAMPLENAME}\t${SAMPLENAME}_R1.fastq.gz\t${SAMPLENAME}_R2.fastq.gz"
+    # for fastp results add the _fastp for rawdata make sure the _fastp is removed
+    echo -e "${SAMPLENAME}\t${SAMPLENAME}_fastp_R1.fastq.gz\t${SAMPLENAME}_fastp_R2.fastq.gz"
 done
+
+# the echo goes to the standard output from SBATCH: Alter repository as needed
 
 
 # derived from the given get_samplelist.sh for this course:
