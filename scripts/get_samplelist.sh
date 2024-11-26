@@ -3,7 +3,7 @@
 #SBATCH --mem=500M
 #SBATCH --cpus-per-task=1
 #SBATCH --job-name=get_samplelist
-#SBATCH --output=../output/fastp_repeat/samplelist.tsv   # Standard output
+#SBATCH --output=../output/fastp_mapping/samplelist.tsv   # Standard output
 #SBATCH --error=../logfiles/%x-%j.err    # Standard error
 #SBATCH --partition=pibu_el8
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --array=1-2
+#SBATCH --array=1-12
 #SBATCH --time=14:30:00
 #SBATCH --mem=8g
 #SBATCH --cpus-per-task=4
@@ -17,8 +17,8 @@ SAMTOOLS_IMAGE="/containers/apptainer/hisat2_samtools_408dfd02f175cd88.sif"
 # define variables
 WORKDIR="/data/users/kweisensee/RNA_Seq"
 INDEXING="${WORKDIR}/output/indexing"
-OUTDIR="${WORKDIR}/output/mapping_repeat"
-SAMPLELIST="${WORKDIR}/output/fastp_repeat/samplelist.tsv"
+OUTDIR="${WORKDIR}/output/mapping"
+SAMPLELIST="${WORKDIR}/output/samplelist.tsv"
 
 # retrieve sample information; Note: the fastp-processed files have different endings,
 # which are not retrieved from the samplelist file. The ending should align as in script fastp.sh
@@ -31,8 +31,8 @@ READ2=${SAMPLE}_fastp_R2.fastq.gz
 apptainer exec --bind /data ${HISAT2_IMAGE} hisat2 \
     -p 16 \
     -x ${INDEXING}/GRCh38_index \
-    -1 ${WORKDIR}/output/fastp_repeat/${READ1} \
-    -2 ${WORKDIR}/output/fastp_repeat/${READ2} \
+    -1 ${WORKDIR}/output/fastp_mapping/${READ1} \
+    -2 ${WORKDIR}/output/fastp_mapping/${READ2} \
     -S ${OUTDIR}/${SAMPLE}_aligned.sam
 
 # better safe than sorry then sorrow
@@ -47,4 +47,4 @@ apptainer exec --bind /data ${SAMTOOLS_IMAGE} samtools view \
 sleep 30s
 
 # remove unneeded .sam files
-rm ${OUTDIR}/*_aligned.sam
+rm ${OUTDIR}/${SAMPLE}_aligned.sam
