@@ -16,7 +16,7 @@ SAMTOOLS_IMAGE="/containers/apptainer/hisat2_samtools_408dfd02f175cd88.sif"
 
 # define variables
 WORKDIR="/data/users/kweisensee/RNA_Seq"
-INDEXING="${WORKDIR}/output/indexing"
+INDEXING="${WORKDIR}/output/indexing_reference"
 OUTDIR="${WORKDIR}/output/mapping"
 SAMPLELIST="${WORKDIR}/output/samplelist.tsv"
 
