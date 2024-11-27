@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --array=1-12
-#SBATCH --time=02:00:00
+#SBATCH --time=02:15:00  # 2 hours was quite close
 #SBATCH --mem=20g # 4CPUs * 4G + 4G for safety
 #SBATCH --cpus-per-task=4
 #SBATCH --job-name=sorting
@@ -18,6 +18,7 @@ MAPPING="${WORKDIR}/output/mapping"
 OUTDIR="${WORKDIR}/output/sorting"
 SAMPLELIST="${WORKDIR}/output/samplelist.tsv"
 
+# get sample names
 SAMPLE=$(awk -v line=${SLURM_ARRAY_TASK_ID} 'NR==line{print $1; exit}' ${SAMPLELIST})
 
 #samtools sort -o sorted_file.bam input_file.bam
