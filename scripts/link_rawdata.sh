@@ -8,4 +8,4 @@
 #SBATCH --partition=pibu_el8
 
 # this links the rawdata for the breastcancer study
-ln -s /data/courses/rnaseq_course/breastcancer_de/reads/* /data/users/kweisensee/RNA_Seq/rawdata/
+ln -s /data/users/kweisensee/RNA_Seq/output/sorting/* /data/users/kweisensee/RNA_Seq/output/indexing

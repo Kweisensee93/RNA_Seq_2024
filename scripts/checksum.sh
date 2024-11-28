@@ -16,9 +16,9 @@ SCRIPT_DIR=$1
 cd "${SCRIPT_DIR}/../reference"
 
 # Process all .gz files in the reference directory
-for FILE in *.gz; do
+for FILE in *chr.gtf.gz; do
     # get the line out of the CHECKSUM for our file
-    CHECKSUM_LINE=$(grep "${FILE}" CHECKSUM.txt)
+    CHECKSUM_LINE=$(grep "${FILE}" CHECKSUM_gtf.txt)
 
     # for the CHECKSUM of ensembl the sum function is used, so we do too
     FILE_SIZE=$(sum "${FILE}")
