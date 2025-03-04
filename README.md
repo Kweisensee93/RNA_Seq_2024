@@ -17,3 +17,16 @@ rawdata/
 reference/
 # Scripts used for the RNASeq course 2024
 scripts/
+
+# Scripts usage on cluster
+These are according to the provided procedure
+Quality checking        quality_control.sh (after fastp quality_control_2.sh may be used, but only minor adjustments are done)
+data trimming           fastp.sh
+get reference genome    get_reference.sh
+check reference         checksum.sh
+indexing                indexing_reference.sh
+mapping                 mapping.sh
+sam to bam              already withing mapping.sh
+sort bam files          sorting.sh
+index sorted bam        indexing.sh
+feature counts          feature_counts.sh
